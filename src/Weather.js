@@ -5,12 +5,28 @@ import Dateandtime from "./Dateandtime";
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from "axios";
-import Search from "./Search";
+import "./search.css";
 
 export default function Weather(props){
 
     let [WeatherData, setWeatherData] = useState({ready:false});
-    
+    const [city,setCity] = useState(props.defaultCity);
+     
+function Search()
+{   let apiKey = `1001fa4e051816eb8cb147e5ae4e09c6`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+    axios.get(url).then(handleTemperature);
+}
+function handleSubmit(event){
+  event.preventDefault();
+  Search();
+}
+function handle(event){
+  setCity(event.target.value);
+  
+  
+}
+
     function handleTemperature(response) {
     
         setWeatherData({
@@ -31,21 +47,23 @@ export default function Weather(props){
     
         <div className="row weatherblock p-2 shadow-sm" >
         <div className="info col-6 p-2 ">
-        <Search/>
+        <div>
+        <form onSubmit={handleSubmit} className="mb-4">
+            <input className="changeCity"  type="text" onChange={handle} placeholder="Change City" autoComplete="off"/>
+            <input className ="changeCitySubmit" type="submit"  value="✈"/>
+        </form>
+        
+        </div>
         <h4 className="currentCity mb-0 text-center">{WeatherData.city}</h4>
         <Dateandtime date={WeatherData.date}/>  
         
         <div className="currentTemperature">
-            
             <div className='d-flex temperature mb-2 justify-content-center'>
-               
             <img className="icon pe-1"
               src={WeatherData.weatherIconUrl}
               alt={WeatherData.weatherDescription}
             />
-                <div  className='temp'>{WeatherData.temperature} </div>
-                <Conversion temp={WeatherData.temperature}/>
-               
+            <Conversion  temp={WeatherData.temperature}/>
             </div>
         </div>
           
@@ -55,9 +73,9 @@ export default function Weather(props){
         <div className="realFeelPrecipitationlWindHumidity">
             <ul className='p-2'> 
                 <li >{WeatherData.weatherDescription}</li>
-                <li >{WeatherData.pressure} hPa</li>
-                <li >{WeatherData.wind} km/hour</li>
-                <li >{WeatherData.humidity} %</li>
+                <li >Pressire - {WeatherData.pressure} hPa</li>
+                <li >Wind - {WeatherData.wind} km/hour</li>
+                <li >Humidity - {WeatherData.humidity} %</li>
             </ul>
         </div>
         </div>
@@ -68,10 +86,9 @@ export default function Weather(props){
         )}
      
     else{
-    let apiKey = `1001fa4e051816eb8cb147e5ae4e09c6`;
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&units=metric&appid=${apiKey}`;
-    axios.get(url).then(handleTemperature);
-    return("helllo")}
+   
+Search()
+return("loading...")}
    
     }
    

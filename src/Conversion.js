@@ -2,16 +2,47 @@
 import React from 'react';
 import "./conversion.css";
 import 'bootstrap/dist/css/bootstrap.css';
+import { useState } from "react";
 export default function Conversion(props){
     
-return(
-    <div>
-    <div className='d-flex temperature mb-2 justify-content-center'>
-    <div  className='temp'>{props.temperature} 
+  const [Temp, setTemp]=useState(props.temp);
+  const [Unit,setUnit]= useState ("celsius");
+
+
+function ConvertToCelsii(event){
+    event.preventDefault();
+    setUnit("celsius")
+    setTemp(props.temp);
+    
+}
+
+
+function ConvertToFarenheit(event){
+    event.preventDefault();
+    setUnit("farenheit");
    
-    <div>
-    <a href='/' className="celsii">°C/</a>
-    <a href='/' className="farenheit">°F </a>
-    </div>
-    </div></div></div>
-    )}
+
+    
+}
+
+
+    if (Unit === "celsius"){
+return(
+    <div className='d-flex'>
+    <div  className='temp'>{Temp}  </div>
+    <span className='cel'> °C |
+    <a href='/' className="farenheit" onClick ={ConvertToFarenheit}>°F </a>
+    </span></div>
+   
+    );}
+else{
+    let FarTemp = Math.round(props.temp*9/5 +32)
+    
+    return(
+    <div className='d-flex'>
+    <div  className='temp'>{FarTemp}  </div>
+    <span className='cel'>  <a href='/' className="farenheit" onClick = {ConvertToCelsii}>°C</a> |
+   °F 
+    </span></div>
+   );}
+}

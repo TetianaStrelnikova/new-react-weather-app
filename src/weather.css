@@ -20,12 +20,9 @@ ul{
 }
 .temperature{
     max-height: 50px;
+    position: relative;
 }
-.temp{
-    font-size: 40px;
-    font-weight: lighter;
-   
-}
+
 .icon{
     opacity:1;
     width: 50px;
