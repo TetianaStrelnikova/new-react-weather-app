@@ -1,0 +1,12 @@
+
+.container{
+    margin: 0 auto;
+    border-radius: 4px;
+    width: 375px;
+    height: 640px;
+    background-size: 100%;
+    background-image: url("./images/background2.jpg");
+    font-family:'Open Sans', sans-serif;
+    box-shadow: rgb(15, 68, 121) 0px 8px 24px;
+    position:relative;
+  }

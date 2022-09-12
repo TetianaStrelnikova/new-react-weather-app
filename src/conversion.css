@@ -1,0 +1,10 @@
+.celsii, .farenheit{
+    color: black;
+    font-size: 12px;
+    text-decoration: none;
+    transition: all 300ms ease;
+   
+}
+.celsii:hover, .farenheit:hover{
+    color:#e13f00;}
+    

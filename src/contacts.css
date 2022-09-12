@@ -1,0 +1,44 @@
+.opensourse{
+    font-size:8px;
+    padding-left:8px;
+    padding-right: 4px;
+  }
+
+  .githublink:hover{
+    color:#4a7156;
+   
+  }
+
+  .linkedin,
+  .instagram,
+  .githublink {
+    color: black;
+    padding-right: 4px;
+    padding-left: 4px;
+    transition: all ease 300ms;
+  }
+  .linkedin:hover {
+    color: rgb(13, 13, 132);
+    opacity: 1;
+    cursor: pointer;
+  }
+  .instagram:hover {
+    color: #d22e83d6;
+    opacity: 1;
+    cursor: pointer;
+  }
+  .contacts {
+    position: absolute;
+    bottom:10px;
+    left:90px;
+   
+    padding: left 5px;
+    font-size: 10px;
+    color: black;
+    transition: all 200ms ease-in-out;
+    background-color: #9dc2d5;
+    opacity: 0.6;
+    border-radius: 4px;
+    box-shadow: rgb(15, 68, 121) 0px 8px 24px;
+    
+  }

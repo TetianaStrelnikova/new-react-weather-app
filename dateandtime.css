@@ -1,0 +1,7 @@
+
+.currentTime,.currentDate,.currentDay{ 
+    font-size: 10px;
+}
+    .currentDay{
+    text-transform: uppercase;
+    }
