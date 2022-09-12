@@ -88,7 +88,7 @@ function handle(event){
     else{
    
 Search()
-return("loading...")}
+return("Loading...")}
    
     }
    
