@@ -1,29 +1,11 @@
 
 .info{
     background-color: #9dc2d5;;
-    opacity: 0.5;
-    border-radius: 4px;
+    opacity: 0.55;
+    border-radius: 15px;
     box-shadow: rgb(15, 68, 121) 0px 8px 24px;
 }
 
-
-.changeCity{
-    max-width: 80px; 
-    max-height: 22px;
-   
-}
-.changeCitySubmit{
-    font-size: 20px;
-    border: none;
-   
-}
-.myLocation,.changeCitySubmit,.changeCity{
-    border: 4px;
-    background:white;
-    opacity: 0.8;
-    font-size: 13px;
-    box-shadow: rgb(15, 68, 121) 0px 8px 24px;
-}
 
 ul{
     border: 4px;
@@ -44,12 +26,8 @@ ul{
     font-weight: lighter;
    
 }
-.celsii, .farenheit{
-    color: black;
-    font-size: 12px;
-    text-decoration: none;
-    transition: all 300ms ease;
-   
+.icon{
+    opacity:1;
+    width: 50px;
+
 }
-.celsii:hover, .farenheit:hover{
-    color:#e13f00;}

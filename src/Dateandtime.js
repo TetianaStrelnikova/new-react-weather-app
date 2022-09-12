@@ -1,15 +1,16 @@
-import './dateandtime.css';
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-export default function Dateandtime(props){
-    console.log(props.date);
 
-    let days =["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    let day=days[props.data.getDay()];
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import './date.css';
+export default function Dateandtime(props){
    
-    let hour=props.data.getHours();
+    let minutes = props.date.getMinutes();
+    let days =["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    let day=days[props.date.getDay()];
+   
+    let hour=props.date.getHours();
     if (hour<10){minutes =`0${hour}`};
-    let minutes = props.data.getMinutes();
+   
     if (minutes<10){minutes =`0${minutes}`};
 
     let months = [

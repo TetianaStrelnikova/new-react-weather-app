@@ -1,0 +1,18 @@
+
+.changeCity{
+    max-width: 80px; 
+    max-height: 22px;
+   
+}
+.changeCitySubmit{
+    font-size: 20px;
+    border: none;
+   
+}
+.myLocation,.changeCitySubmit,.changeCity{
+    border: 4px;
+    background:white;
+    opacity: 0.8;
+    font-size: 13px;
+    box-shadow: rgb(15, 68, 121) 0px 8px 24px;
+}
