@@ -5,13 +5,14 @@ import axios from "axios";
 
 
 export default function Forecast(props){
-console.log(props.coord);
+let lat = props.lat;
+let lon = props.lon;
 
 function handleResponse(response){
 console.log(response.data);}
 
 
-let Url =`https://api.openweathermap.org/data/2.5/onecall?lat=${props.coord.lat}&lon=${props.coord.lon}&exclude={part}&appid=aca4dd3643b89e94dbd3cac6cf6f2638`
+let Url =`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=aca4dd3643b89e94dbd3cac6cf6f2638`
 axios.get(Url).then(handleResponse);
 
 

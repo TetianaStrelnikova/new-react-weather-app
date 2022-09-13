@@ -14,7 +14,7 @@ export default function Weather(props){
     const [city,setCity] = useState(props.defaultCity);
      
 function Search()
-{   let apiKey = `1001fa4e051816eb8cb147e5ae4e09c6`;
+{   let apiKey = `aca4dd3643b89e94dbd3cac6cf6f2638`;
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
     axios.get(url).then(handleTemperature);
 }
@@ -86,7 +86,8 @@ function handle(event){
         
         </div>
 
-<Forecast coord={WeatherData.coord}/>
+<Forecast lat={WeatherData.coord.lat} lon={WeatherData.coord.lon}
+/>
 
 </div>
         )}
