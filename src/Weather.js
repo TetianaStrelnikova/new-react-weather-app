@@ -48,7 +48,7 @@ function handle(event){
     return(
     <div>
         <div className="row weatherblock p-2 shadow-sm" >
-        <div className="info col-6 p-2 ">
+        <div className="info col-6 p-2 ms-2 ">
         <div>
         <form onSubmit={handleSubmit} className="mb-4">
             <input className="changeCity"  type="text" onChange={handle} placeholder="Change City" autoComplete="off"/>

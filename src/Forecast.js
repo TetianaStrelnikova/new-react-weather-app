@@ -3,55 +3,34 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from "axios";
 import { useState } from 'react';
-
+import DailyForecast from "./DailyForecast";
 
 export default function Forecast(props){
 
 const[ready, setReady]=useState(false);
 const [forecast, setForecast] = useState(null);
-const[date,setDate] = useState(null);
+
 
 function handleResponse(response){
 setForecast(response.data.daily);
 setReady(true);
-setDate(new Date(response.data.daily[0].dt))}
+}
 
 
-if (ready===true){
-  
-let iconUrl = `http://openweathermap.org/img/wn/10d@2x.png`
-let days =["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-let day=days[date.getDay()];
-let months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec"
-];
-let month = months[date.getMonth()];
-let dayMonth = date.getDate();
-
+if (ready===true)
+{
   return(
-  <div className='row forecast'>
-  <div className='col ps-0 pe-0'>
-  <h3 className='day mt-2 mb-0'>{day}</h3>
-  <h2 className='date mb-0'>{dayMonth} {month}</h2>
-   <img className="forecastIcon"
-                src={iconUrl}
-                alt={forecast[0].weather.description}
-              />
-  <h3 className='forecastTemp'>{Math.round(forecast[0].temp.min)}° | {Math.round(forecast[0].temp.max)}°</h3>
-  </div>
-  </div>
-  )}
+<div className='row pt-3 pb-3 ms-0 ps-1 pe-1 forecast'>
+{forecast.map(function(daily,index){if(index<5)return(<div className="col ps-0 pe-0" key={index}>
+  <DailyForecast  forecast={daily}/>
+</div>)})}
+
+
+
+
+</div>
+)}
+ 
 
   else{
     let lat = props.lat;
@@ -59,10 +38,4 @@ let dayMonth = date.getDate();
     let Url =`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={part}&units=metric&appid=aca4dd3643b89e94dbd3cac6cf6f2638`
     axios.get(Url).then(handleResponse);
     return(null);
-}
-
-
-
-
-
-}
+}}

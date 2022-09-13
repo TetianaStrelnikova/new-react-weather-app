@@ -1,14 +1,15 @@
 .forecast{ 
     margin:5px;
     background-color: #9dc2d5;;
-    opacity: 0.5;
+    opacity: 0.6;
     border-radius: 15px;
     box-shadow: rgb(15, 68, 121) 0px 8px 24px;
     font-size: 14px;
     font-weight: 400;
     text-align: center;
     position:absolute;
-    bottom: 60px;}
+    bottom: 50px;
+    left:10px;}
 
 .day{
     text-transform: uppercase;
