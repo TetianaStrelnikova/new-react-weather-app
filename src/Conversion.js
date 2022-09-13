@@ -13,7 +13,7 @@ function ConvertToCelsii(event){
     event.preventDefault();
     setUnit("celsius")
     setTemp(props.temp);
-    
+    props.changeWord("Hello");
 }
 
 
@@ -21,7 +21,7 @@ function ConvertToFarenheit(event){
     event.preventDefault();
     setUnit("farenheit");
    
-
+    props.changeWord("TetianaSeniorReactMegaDeveloper");
     
 }
 

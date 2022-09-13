@@ -5,13 +5,21 @@ import axios from "axios";
 import { useState } from 'react';
 import DailyForecast from "./DailyForecast";
 import { useEffect } from 'react';
+import DailyForecastFarenheit from './DailyForecastFarenheit';
 export default function Forecast(props){
 
 const[ready, setReady]=useState(false);
 const [forecast, setForecast] = useState(null);
+const [units,setUnits]=useState("celsii");
 useEffect(()=>{
   setReady(false);},[props.lat, props.lon]
 )
+
+useEffect(()=>{
+  if(props.word==="TetianaSeniorReactMegaDeveloper"){
+  setUnits("farenheit");}else{setUnits("celsii")}},[props.word]
+)
+
 
 function handleResponse(response){
 setForecast(response.data.daily);
@@ -19,7 +27,7 @@ setReady(true);
 }
 
 
-if (ready===true)
+if (ready===true && units==="celsii")
 {
   return(
 <div className='row pt-3 pb-3 ms-0 ps-1 pe-1 forecast'>
@@ -28,7 +36,16 @@ if (ready===true)
 </div>)}})}
 </div>
 )}
- 
+
+if (ready===true && units==="farenheit")
+{
+
+    return(<div className='row pt-3 pb-3 ms-0 ps-1 pe-1 forecast'>
+    {forecast.map(function(daily ,index){if(index<5){return(<div className="col ps-0 pe-0" key={index}>
+      <DailyForecastFarenheit  forecast={daily}/>
+    </div>)}})}
+    </div>)
+}
 
   else{
     let lat = props.lat;

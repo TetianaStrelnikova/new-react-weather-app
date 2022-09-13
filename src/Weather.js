@@ -9,7 +9,7 @@ import "./search.css";
 import Forecast from "./Forecast";
 
 export default function Weather(props){
-
+    const[word,setWord]=useState("Hello")
     let [WeatherData, setWeatherData] = useState({ready:false});
     const [city,setCity] = useState(props.defaultCity);
      
@@ -65,7 +65,7 @@ function handle(event){
               src={WeatherData.weatherIconUrl}
               alt={WeatherData.weatherDescription}
             />
-            <Conversion  temp={WeatherData.temperature}/>
+            <Conversion  temp={WeatherData.temperature} changeWord={word => setWord(word)}/>
             </div>
         </div>
           
@@ -86,7 +86,7 @@ function handle(event){
         
         </div>
 
-<Forecast lat={WeatherData.coord.lat} lon={WeatherData.coord.lon}
+<Forecast lat={WeatherData.coord.lat} lon={WeatherData.coord.lon} word={word}
 />
 
 </div>
