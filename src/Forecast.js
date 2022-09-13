@@ -33,7 +33,7 @@ if (ready===true && units==="celsii")
 <div className='row pt-3 pb-3 ms-0 ps-1 pe-1 forecast'>
 {forecast.map(function(daily ,index){if(index<5){return(<div className="col ps-0 pe-0" key={index}>
   <DailyForecast  forecast={daily}/>
-</div>)}})}
+</div>)} else{return(null)}})}
 </div>
 )}
 
@@ -43,7 +43,7 @@ if (ready===true && units==="farenheit")
     return(<div className='row pt-3 pb-3 ms-0 ps-1 pe-1 forecast'>
     {forecast.map(function(daily ,index){if(index<5){return(<div className="col ps-0 pe-0" key={index}>
       <DailyForecastFarenheit  forecast={daily}/>
-    </div>)}})}
+    </div>)}else{return(null)}})}
     </div>)
 }
 
