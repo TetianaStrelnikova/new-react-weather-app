@@ -6,6 +6,7 @@ import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from "axios";
 import "./search.css";
+import Forecast from "./Forecast";
 
 export default function Weather(props){
 
@@ -38,13 +39,14 @@ function handle(event){
             weatherIconUrl:`http://openweathermap.org/img/wn/${ response.data.weather[0].icon}@2x.png`,
             weatherDescription: response.data.weather[0].description,
             city: response.data.name,
-            date:new Date(response.data.dt*1000)
+            date:new Date(response.data.dt*1000),
+            coord:response.data.coord
 });
 ;}
         if(WeatherData.ready===true)
 {
     return(
-    
+    <div>
         <div className="row weatherblock p-2 shadow-sm" >
         <div className="info col-6 p-2 ">
         <div>
@@ -83,6 +85,10 @@ function handle(event){
         <div className='col-6 currentIcon'></div>
         
         </div>
+
+<Forecast coord={WeatherData.coord}/>
+
+</div>
         )}
      
     else{

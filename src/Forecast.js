@@ -1,7 +1,20 @@
 import './forecast.css';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-export default function Forecast(){
+import axios from "axios";
+
+
+export default function Forecast(props){
+console.log(props.coord);
+
+function handleResponse(response){
+console.log(response.data);}
+
+
+let Url =`https://api.openweathermap.org/data/2.5/onecall?lat=${props.coord.lat}&lon=${props.coord.lon}&exclude={part}&appid=aca4dd3643b89e94dbd3cac6cf6f2638`
+axios.get(Url).then(handleResponse);
+
+
 return(
 <div className='row forecast'>
 <div className='col'>
