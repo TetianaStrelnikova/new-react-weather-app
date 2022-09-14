@@ -16,7 +16,7 @@ useEffect(()=>{
 )
 
 useEffect(()=>{
-  if(props.word==="TetianaSeniorReactMegaDeveloper"){
+  if(props.word==="Tetiana"){
   setUnits("farenheit");}else{setUnits("celsii")}},[props.word]
 )
 

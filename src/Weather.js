@@ -14,7 +14,7 @@ export default function Weather(props){
     const [city,setCity] = useState(props.defaultCity);
      
 function Search()
-{   let apiKey = `aca4dd3643b89e94dbd3cac6cf6f2638`;
+{   let apiKey = `ed55b36e362d8733f7d859247cedeaf2`;
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
     axios.get(url).then(handleTemperature);
 }
@@ -24,15 +24,14 @@ function handleSubmit(event){
 }
 function handle(event){
   setCity(event.target.value);
-  
-  
+console.log(city);
 }
 
     function handleTemperature(response) {
     
         setWeatherData({
             ready:true,
-            temperature: Math.round(response.data.main.temp),
+            temp: Math.round(response.data.main.temp),
             humidity: Math.round(response.data.main.humidity),
             wind: Math.round(response.data.wind.speed),
             pressure: Math.round(response.data.main.humidity),
@@ -65,7 +64,7 @@ function handle(event){
               src={WeatherData.weatherIconUrl}
               alt={WeatherData.weatherDescription}
             />
-            <Conversion  temp={WeatherData.temperature} changeWord={word => setWord(word)}/>
+            <Conversion  temp={WeatherData.temp} changeWord={word => setWord(word)}/>
             </div>
         </div>
           
